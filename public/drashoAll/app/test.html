@@ -5,30 +5,25 @@
     <title>Game</title>
 
 
-    <script src="../../public/drashoAll/app/node_modules/jquery/dist/jquery.js"></script>
-    <script src="../../public/drashoAll/app/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="../../public/drashoAll/app/node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../public/drashoAll/app/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../public/drashoAll/app/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
 
 
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
 
 
+    <link rel="stylesheet" href="styles/css/fonticons.css">
+    <link rel="stylesheet" href="styles/fonts/stylesheet.css">
+    <link rel="stylesheet" href="styles/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="styles/css/normalize.css">
 
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/fonticons.css">
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/fonts/stylesheet.css">
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/css/plugins.css" />
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link rel="stylesheet" href="styles/css/responsive.css" />
 
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/normalize.css">
-
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/plugins.css" />
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/style.css">
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/responsive.css" />
-
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/forthefuckinimage.css">
-    <link rel="stylesheet" href="../../public/drashoAll/app/styles/css/form-style.css">
+    <link rel="stylesheet" href="styles/css/forthefuckinimage.css">
+    <link rel="stylesheet" href="styles/css/form-style.css">
 
 
     <style>
@@ -55,17 +50,17 @@
 
         .gameWrapper{
             height: 85%;
-            background-image: url("../../public/drashoAll/app/images/bald_eagle_flying-wallpaper-1366x768.jpg");
+            background-image: url("images/bald_eagle_flying-wallpaper-1366x768.jpg");
             background-size: 100%;
         }
         .loginWrapper{
             height: 100%;
-            background-image: url("../../public/drashoAll/app/images/eagle_mountain_sky_snow_hills_birds_predators_52858_1366x768.jpg");
+            background-image: url("images/eagle_mountain_sky_snow_hills_birds_predators_52858_1366x768.jpg");
             background-size: 100%;
         }
         .statisticWrapper{
             height: 100%;
-            background-image: url("../../public/drashoAll/app/images/bald_eagle_flying-wallpaper-1366x768.jpg");
+            background-image: url("images/bald_eagle_flying-wallpaper-1366x768.jpg");
             background-size: 100%;
         }
         .tableStyle{
@@ -106,7 +101,7 @@
 
         .shopWrapper{
             height: 100%;
-            background-image: url("../../public/drashoAll/app/images/bald_eagle_flying-wallpaper-1366x768.jpg");
+            background-image: url("images/bald_eagle_flying-wallpaper-1366x768.jpg");
             background-size: 100%;
         }
         .shopItem{
@@ -166,7 +161,7 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <a class="navbar-brand" href="#/home">
-                                    <img src="../../public/drashoAll/app/images/ea1.png">
+                                    <img src="images/ea1.png">
                                 </a>
                             </div>
 
@@ -181,14 +176,11 @@
 
                                 </ul>
                             </div>
-
                         </div>
                     </nav>
                 </div>
             </div>
-
         </div>
-
     </div>
 </header>
 
@@ -239,35 +231,38 @@
 
 </body>
 
-<script src="../../public/drashoAll/app/node_modules/angular/angular.js"></script>
-<script src="../../public/drashoAll/app/node_modules/angular-route/angular-route.js"></script>
-<script src="../../public/drashoAll/app/node_modules/angular-cookies/angular-cookies.js"></script>
-<script src="../../public/drashoAll/app/node_modules/angular-utils-pagination/dirPagination.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<script src="node_modules/angular-cookies/angular-cookies.js"></script>
+<script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
 
 
 
-<script src="../../public/drashoAll/app/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 
 
-<script src="../../public/drashoAll/app/app-js/app.js"></script>
+<script src="app-js/app.js"></script>
 
-<script src="../../public/drashoAll/app/app-js/services/identity_service.js"></script>
-<script src="../../public/drashoAll/app/app-js/services/auth_service.js"></script>
-<script src="../../public/drashoAll/app/app-js/services/statistic_service.js"></script>
-<script src="../../public/drashoAll/app/app-js/services/myAccount_service.js"></script>
-<script src="../../public/drashoAll/app/app-js/services/shop_service.js"></script>
-<script src="../../public/drashoAll/app/app-js/services/userAcc_service.js"></script>
-<script src="../../public/drashoAll/app/app-js/directives/game.js"></script>
+<script src="app-js/services/identity_service.js"></script>
+<script src="app-js/services/auth_service.js"></script>
+<script src="app-js/services/statistic_service.js"></script>
+<script src="app-js/services/myAccount_service.js"></script>
+<script src="app-js/services/shop_service.js"></script>
+<script src="app-js/services/userAcc_service.js"></script>
+<script src="app-js/directives/game.js"></script>
 
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_Home.js" ></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_Game.js" ></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_Login.js"></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_MyAcc.js"></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_Register.js"></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_Shop.js" ></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_Statistic.js"></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_UserDetails.js"></script>
-<script src="../../public/drashoAll/app/app-js/controllers/ctrl_MainPage.js"></script>
+<script src="app-js/controllers/ctrl_Home.js" ></script>
+<script src="app-js/controllers/ctrl_Game.js" ></script>
+<script src="app-js/controllers/ctrl_Login.js"></script>
+<script src="app-js/controllers/ctrl_MyAcc.js"></script>
+<script src="app-js/controllers/ctrl_Register.js"></script>
+<script src="app-js/controllers/ctrl_Shop.js" ></script>
+<script src="app-js/controllers/ctrl_Statistic.js"></script>
+<script src="app-js/controllers/ctrl_UserDetails.js"></script>
+<script src="app-js/controllers/ctrl_MainPage.js"></script>
 
 
 
@@ -275,12 +270,12 @@
 
 <!-- game scripts -->
 
-<script src="../../public/drashoAll/app/app-js/game/framework.js"></script>
-<script src="../../public/drashoAll/app/app-js/game/scripts/Background.js"></script>
-<script src="../../public/drashoAll/app/app-js/game/scripts/FrontStage.js"></script>
-<script src="../../public/drashoAll/app/app-js/game/scripts/Player.js"></script>
-<script src="../../public/drashoAll/app/app-js/game/scripts/Enemy.js"></script>
-<script src="../../public/drashoAll/app/app-js/game/scripts/Bonus.js"></script>
-<script src="../../public/drashoAll/app/app-js/game/scripts/main.js"></script>
+<script src="app-js/game/framework.js"></script>
+<script src="app-js/game/scripts/Background.js"></script>
+<script src="app-js/game/scripts/FrontStage.js"></script>
+<script src="app-js/game/scripts/Player.js"></script>
+<script src="app-js/game/scripts/Enemy.js"></script>
+<script src="app-js/game/scripts/Bonus.js"></script>
+<script src="app-js/game/scripts/main.js"></script>
 
 </html>

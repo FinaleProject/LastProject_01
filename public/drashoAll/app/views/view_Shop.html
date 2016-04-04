@@ -1,0 +1,106 @@
+<!--<p>-->
+    <!--<span class="glyphicon glyphicon-star"></span>-->
+    <!--<span class="glyphicon glyphicon-star"></span>-->
+    <!--<span class="glyphicon glyphicon-star"></span>-->
+    <!--<span class="glyphicon glyphicon-star"></span>-->
+    <!--<span class="glyphicon glyphicon-star"></span>-->
+<!--</p>-->
+
+<div class="shopWrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <h1 style="text-align: center">Shop</h1>
+                <div class="row">
+
+                    <div class="shopItem col-sm-4 col-lg-4 col-md-4" ng-repeat="item in items | startFrom:nextPageUsers | limitTo:9">
+                        <div class="thumbnail shopItemHeight">
+                            <img class="shopImage" src="images/{{item.picture}}.png" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">${{item.price}}</h4>
+                                <h4>Price</h4>
+                                <p class="pull-right"><strong>{{item.rank}}</strong></p>
+                                <h4>Rank:</h4>
+
+
+                                <p class="pull-right">
+                                    <strong>{{item.level}}</strong>
+                                </p>
+                                <h4>Level</h4>
+
+                                <button type="button"
+                                        class="btn btn-primary col-md-3"
+                                        data-toggle="modal"
+                                        ng-click="selectedItem(item)"
+                                        data-target="#exampleModal"
+                                        data-whatever="@mdo">Buy
+                                </button>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <uib-pagination total-items="allItems"
+                                        ng-model="currentPage"
+                                        ng-change="pageChanged()">
+                        </uib-pagination>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="modal fade"
+     id="exampleModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="exampleModalLabel">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+
+                </button>
+                <h4>You have ${{user.money}}</h4>
+            </div>
+            <div class="modal-body">
+                {{msg}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button"
+                        class="btn btn-success"
+                        data-dismiss="modal"
+                        ng-disabled = "flag"
+                        ng-click="buyItem(wanted)">Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        //console.log($('#exampleModal'));
+
+        var button = $(event.relatedTarget);
+        var recipient = button.data('whatever') ;
+        var modal = $(this);
+        modal.find('.modal-title').text('New message to ' + recipient);
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>

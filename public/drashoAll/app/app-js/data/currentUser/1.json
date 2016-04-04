@@ -1,0 +1,12 @@
+{
+  "id"       : 1,
+  "img"      : "16",
+  "name"     : "Ivan",
+  "rank"     : "22",
+  "bestScore": "3474",
+  "games"    : "88",
+  "level"    : "10",
+  "gender"   : "male",
+  "email"    : "Ivan@ivan.ivan",
+  "experience": "1303/2600"
+}

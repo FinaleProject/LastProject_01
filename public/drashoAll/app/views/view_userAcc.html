@@ -1,0 +1,93 @@
+<div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="">
+                <div class="col-xs-12 col-sm-12
+                            col-md-6 col-lg-6
+                            col-xs-offset-0
+                            col-sm-offset-0
+                            col-md-offset-3
+                            col-lg-offset-3
+                            toppad" >
+
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{user.name}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3 " align="center">
+                                    <img alt="User Pic"
+                                         src="images/{{user.img}}.png"
+                                         class="img-circle img-responsive">
+                                </div>
+
+                                <div class=" col-md-9 col-lg-9 ">
+                                    <table class="table table-user-information">
+                                        <tbody>
+                                        <tr>
+                                            <td><strong>Rank position</strong></td>
+                                            <td>{{user.rank}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Best Score:</strong></td>
+                                            <td>{{user.bestScore}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Games:</strong></td>
+                                            <td>{{user.games}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Level:</strong></td>
+                                            <td>{{user.level}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Experience</strong></td>
+                                            <td>{{user.experience}}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Gender</strong></td>
+                                            <td>{{user.gender}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Email</strong></td>
+                                            <td>{{user.email}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button data-original-title="Broadcast Message"
+                                    data-toggle="tooltip" type="button"
+                                    ng-click="showMsgForm()"
+                                    class="btn btn-sm btn-primary">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form ng-show="showMsg"
+                  class="col-xs-12 col-sm-12
+                            col-md-6 col-lg-6
+                            col-xs-offset-0
+                            col-sm-offset-0
+                            col-md-offset-3
+                            col-lg-offset-3
+                            toppad">
+                <div class="form-group">
+                    <label for="message-text" class="control-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
