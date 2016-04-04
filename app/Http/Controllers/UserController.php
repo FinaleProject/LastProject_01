@@ -14,7 +14,7 @@ class UserController extends Controller
     	
     	$users = User::all();
     	
-    	return view('users.show', compact('users'));
+    	return $users;
     
     }
     

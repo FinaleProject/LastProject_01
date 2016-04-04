@@ -1,39 +1,38 @@
-+app.controller('ctrl_Statistic',function($scope,$routeParams, statistic_service){
++app.controller('ctrl_Statistic',function($scope,statistic_service){
 
     console.log('ctrl_Statistic...');
 
-    var id = $routeParams.id;
-
-    $scope.users;
 
     var flagOrder = true;
 
+   
+  
     statistic_service.getUsers(function(reasponse){
 
-        $scope.users = reasponse.data.users;
+        $scope.users = reasponse.data;
 
         console.log($scope.users);
 
 
-        $scope.totalItems = $scope.users.length;
-
-        console.log($scope.totalItems);
-        $scope.currentPage = 1;
-
-
-        $scope.pageChanged = function () {
-            console.log( $scope.currentPage);
-            $scope.nextPageUsers = ($scope.currentPage * 10) - 10;
-            console.log($scope.nextPageUsers)
-        };
+//        $scope.totalItems = $scope.users.length;
+//
+//        console.log($scope.totalItems);
+//        $scope.currentPage = 1;
+//
+//
+//        $scope.pageChanged = function () {
+//            console.log( $scope.currentPage);
+//            $scope.nextPageUsers = ($scope.currentPage * 10) - 10;
+//            console.log($scope.nextPageUsers)
+//        };
     });
 
 
 
-    statistic_service.getUserByID(id,function(data){
+/*    statistic_service.getUserByID(id,function(data){
         console.log(data.data);
         $scope.user = data.data;
-    });
+    });*/
 
 
 
