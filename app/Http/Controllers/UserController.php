@@ -18,11 +18,13 @@ class UserController extends Controller
     
     }
     
-    public function showUser(User $user) {
+    public function showUser(User $user_id) {
     	 
-    	return $user;
+    	return $user_id;
     
     }
+    
+
     
     
 }

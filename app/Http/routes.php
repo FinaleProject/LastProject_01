@@ -19,7 +19,7 @@ Route::get('choices', 'ContollerPageNavigation@navigateToChoices');
 
 Route::get('users', 'UserController@showUsers');
 
-Route::get('user', 'UserController@showUser');
+Route::get('users/{user_id}', 'UserController@showUser');
 
 
 
