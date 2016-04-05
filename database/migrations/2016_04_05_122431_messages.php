@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Users extends Migration
+class Messages extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,17 @@ class Users extends Migration
      */
     public function up()
     {
-          Schema::create('users', function (Blueprint $table) {
+    	Schema::create('messages', function (Blueprint $table) {
     		$table->increments('id');
-    		$table->string('name');
-    		$table->string('email')->unique();
-    		$table->string('password');
-    		$table->integer('level');
-    		$table->string('assets', 500);
-    		$table->string('messages', 1000);
-    		$table->rememberToken();
+    		$table->integer('user_id', false, true);
+    		$table->string('message_text', 1000);
+    		$table->dateTimeTz('received_at');
     		$table->timestamps();
+    	
+    		$table
+    		->foreign('user_id')
+    		->references('id')
+    		->on('users');
     	});
     }
 
@@ -32,6 +33,6 @@ class Users extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        //
     }
 }
