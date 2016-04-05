@@ -51,7 +51,7 @@ app.controller('ctrl_Shop',function($scope, $location, shop_service, identity_se
 
     };
 
-
+// shtoto ne iskashe da kachi v gitaaaaaaaaaaaaaaaaaaa!
 
     
     $scope.allItems = $scope.items.length;
