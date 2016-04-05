@@ -33,6 +33,6 @@ class Messages extends Migration
      */
     public function down()
     {
-        //
+    	Schema::drop('messages');
     }
 }
