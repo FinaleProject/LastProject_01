@@ -2,10 +2,10 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
 
     var TOKEN_KEY = 'authentication'; // cookie key
 
-    console.log('auth !!!!!')
+    console.log('auth !!!!!');
 
     var register = function register(user){
-    	console.log('sdasdas')
+    	console.log('sdasdas');
         var deferred = $q.defer();
 
         $http.post('/reg',user)
@@ -19,11 +19,10 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
 
     var login = function login(user) {
         var deferred = $q.defer();
-        console.log('reg service')
-        var data = user
+        console.log('reg service');
 
 
-        $http.post('/reg', data)
+        $http.post('/login', user)
             .success(function (response) {
                 var tokenValue = response.access_token;  // tokena koito mi vru6ta api-to
 

@@ -7,7 +7,6 @@ app.factory('identity_service',function($http, $q){
         level: 10,
         picture: 5,
         bestScore: 2405,
-        experience: '248/1000',
         email: 'drashoo@abv.bg',
         games: 15
     };*/

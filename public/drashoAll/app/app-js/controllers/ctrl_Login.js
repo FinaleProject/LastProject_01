@@ -4,17 +4,13 @@ app.controller('ctrl_Login',function($scope, $location,auth_service){
 
 
 
-    $scope.singUpUser = function(user){
+    $scope.loginUser = function(user){
         console.log(user);
     };
 
 
-    //$scope.login = function(user, loginForm){
-    //    if(loginForm.$valid){
-    //        auth_service.login(user).then(function(){
-    //            $location.path('/home');
-    //        })
-    //    }
-    //}
+    $scope.loginUser = function(user){
+        auth_service.login(user);
+    }
 
 });

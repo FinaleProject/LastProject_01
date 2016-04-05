@@ -7,7 +7,10 @@ var app = angular.module('app',
     ])
     .filter('startFrom', function(){
        return function (data, start){
-           return data.slice(start)
+           if(data){
+               return data.slice(start);
+           }
+
        }
     });
 

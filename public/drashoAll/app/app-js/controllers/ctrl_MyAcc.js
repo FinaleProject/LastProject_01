@@ -1,4 +1,4 @@
-app.controller('ctrl_MyAcc',function($scope,identity_service ,myAccount_service){
+app.controller('ctrl_MyAcc',function($scope,identity_service){
 
     console.log('ctrl_MyAcc is ready...');
 

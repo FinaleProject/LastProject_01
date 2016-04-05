@@ -1,3 +1,32 @@
-<game/>
+<div class="gameWrapper" style="background-color: red;">
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2">
 
+            <div class="game">
+                <button id="startGame" class="btnStart">Play</button>
+
+                <div id="gameWrapper">
+                    <h1>GAME</h1>
+                    <!--<img id="myImg" src="../app/images/gameBackground02test.jpg" style="display: none" width="800" height="600">-->
+
+                    <!--<canvas id="backgroundGame" width="800px" height="600px"></canvas>-->
+
+                    <!--<canvas id="gameCanvas" width="800px" height="600px"></canvas>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var btn = document.getElementById('startGame');
+
+    btn.addEventListener('click',function(){
+        btn.setAttribute('style', 'display:none;');
+        console.log(btn);
+        document.getElementById('gameWrapper').innerHTML = '';
+        console.log(document.getElementById('gameWrapper').innerHTML);
+        startGame();
+    });
+
+</script>
 
