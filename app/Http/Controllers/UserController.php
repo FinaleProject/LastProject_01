@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use App\Item;
+
 use App\Http\Requests;
 
 class UserController extends Controller
@@ -24,6 +26,12 @@ class UserController extends Controller
     
     }
     
+    public function showAllItems() {
+    	
+    	$items = Item::all();
+    	
+    	return $items;
+    }
 
     
     

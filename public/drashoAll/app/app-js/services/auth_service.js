@@ -2,15 +2,16 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
 
     var TOKEN_KEY = 'authentication'; // cookie key
 
-
+    console.log('auth !!!!!')
 
     var register = function register(user){
-
+    	console.log('sdasdas')
         var deferred = $q.defer();
 
-        $http.post('/api/account/register', user)
+        $http.post('/reg',user)
             .then(function(){
                 deferred.resolve(true);
+                console.log(user)
             },function(err){
                 deferred.reject(err)
             })
@@ -18,12 +19,11 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
 
     var login = function login(user) {
         var deferred = $q.defer();
+        console.log('reg service')
+        var data = user
 
-        var data = "grant_type=password&username=" + (user.username || '') + '&password=' + (user.password || '');
-        // data - formata v koito survura o4akva dannite
 
-
-        $http.post('/Token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        $http.post('/reg', data)
             .success(function (response) {
                 var tokenValue = response.access_token;  // tokena koito mi vru6ta api-to
 

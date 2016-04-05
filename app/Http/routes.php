@@ -13,13 +13,18 @@
 
 Route::get('/', 'ContollerPageNavigation@navigateToHome');
 
-Route::get('reg', 'ContollerPageNavigation@navigateToRegistration');
+Route::get('reg', 'ContollerPageNavigation@saveUser');
+
+Route::get('reg/{token}', 'ContollerPageNavigation@navigateToToken');
 
 Route::get('choices', 'ContollerPageNavigation@navigateToChoices');
 
 Route::get('users', 'UserController@showUsers');
 
 Route::get('users/{user_id}', 'UserController@showUser');
+
+
+Route::get('shop', 'UserController@showAllItems');
 
 
 

@@ -19,11 +19,11 @@ class Items extends Migration
     		$table->decimal('item_price');
     		$table->tinyInteger('item_level');
     		$table->timestamps();
-    		
+    		 
     		$table
-    			->foreign('user_id')
-    			->references('id')
-    			->on('users');
+	    		->foreign('user_id')
+	    		->references('id')
+	    		->on('users');
     	});
     }
 

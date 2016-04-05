@@ -1,15 +1,21 @@
 app.controller('ctrl_Shop',function($scope, $location, shop_service, identity_service){
 
     console.log('ctrl_Shop is ready...');
+//
+//    if(!identity_service.isAuthenticated()){
+//        $location.url('/login');
+//    }
+//
+//
+//    $scope.user = identity_service.getUser().$$state.value;
+    $scope.items = [];
+    shop_service.getAllItems(function(response){
+    	
+    	$scope.items = response.data;
+    	console.log($scope.items);
+    
 
-    if(!identity_service.isAuthenticated()){
-        $location.url('/login');
-    }
-
-
-    $scope.user = identity_service.getUser().$$state.value;
-
-
+    });
 
     $scope.selectedItem = function(item){
         $scope.flag = true;
@@ -47,8 +53,9 @@ app.controller('ctrl_Shop',function($scope, $location, shop_service, identity_se
 
 
 
-    $scope.items = shop_service.getAllItems();
+    
     $scope.allItems = $scope.items.length;
+    console.log("asdasdasdasd");
     $scope.currentPage = 1;
 
 

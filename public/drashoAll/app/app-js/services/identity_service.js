@@ -1,6 +1,6 @@
 app.factory('identity_service',function($http, $q){
-    //var currentUser = {};
-    var currentUser = {
+    var currentUser = {};
+    /*var currentUser = {
         name:'Drasho',
         money: 5000,
         rank: 5,
@@ -10,7 +10,7 @@ app.factory('identity_service',function($http, $q){
         experience: '248/1000',
         email: 'drashoo@abv.bg',
         games: 15
-    };
+    };*/
 
     var deferred = $q.defer();
 

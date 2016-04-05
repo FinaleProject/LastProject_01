@@ -177,7 +177,7 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="active"><a href="#/home">Home</a></li>
-                                    <li><a href="#/login">Sign in/Sign up</a></li>
+                                    <li><a href="#/register">Sign in/Sign up</a></li>
 
                                 </ul>
                             </div>

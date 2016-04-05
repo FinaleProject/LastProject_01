@@ -20,6 +20,8 @@ class Users extends Migration
     		$table->tinyInteger('level')->unsigned();
     		$table->tinyInteger('position')->unsigned();
     		$table->decimal('money');
+    		$table->string('messages', 500);
+    		$table->string('api_token', 32)->unique();
     		$table->rememberToken();
     		$table->timestamps();
     	});

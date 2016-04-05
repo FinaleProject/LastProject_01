@@ -9,7 +9,7 @@ app.controller('ctrl_Home',function($scope,identity_service,$location){
         if(identity_service.isAuthenticated()){
             $location.url('/mainPage');
         }else{
-            $location.url('/login');
+            $location.url('/mainPage');
 
         }
 

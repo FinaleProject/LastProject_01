@@ -57,11 +57,21 @@
                         <input type="password"
                                ng-pattern="/^[A-z]+$/"
                                required="required"
-                               ng-model="user.pass"
+                               ng-model="user.pass1"
                                autocomplete="off"/>
                     </div>
-
-                    <button class="button button-block" ng-click="singUpUser(user)">Get Started</button>
+					<div class="field-wrap">
+                        <label>
+                            Set A Password<span class="req">*</span>
+                        </label>
+                        <input type="password"
+                               ng-pattern="/^[A-z]+$/"
+                               required="required"
+                               ng-model="user.pass2"
+                               autocomplete="off"/>
+                    </div>
+					
+                    <button class="button button-block" ng-click="register(user)">Get Started</button>
 
                 </form>
 
