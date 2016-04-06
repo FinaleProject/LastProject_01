@@ -16,7 +16,7 @@ class Users extends Migration
     		$table->increments('id');
     		$table->string('name');
     		$table->string('email')->unique();
-    		$table->string('password')->unique();
+    		$table->string('password');
     		$table->tinyInteger('level')->unsigned();
     		$table->tinyInteger('position')->unsigned();
     		$table->decimal('money');

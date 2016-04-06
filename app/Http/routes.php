@@ -26,6 +26,21 @@ Route::get('users/{user_id}', 'UserController@showUser');
 
 Route::get('shop', 'UserController@showAllItems');
 
+Route::group([
+		'prefix' => 'api/v1',
+		'middleware' => 'api',
+		'namespace' => 'Api'
+	], function () {
+		Route::post('/login', 'AuthController@login');
+		Route::post('/register', 'AuthController@registration');
+		
+		Route::group(['middleware' => 'api.auth'], function () {
+			Route::get('token_test', function (){
+				return Auth::user();
+			});
+		});
+	} );
+
 
 
 // below are not needed for now
