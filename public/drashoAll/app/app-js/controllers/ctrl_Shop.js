@@ -1,13 +1,27 @@
-app.controller('ctrl_Shop',function($scope, $location, shop_service, identity_service){
+app.controller('ctrl_Shop',function($scope, $location, shop_service, identity_service,auth_service){
 
     console.log('ctrl_Shop is ready...');
-//
-//    if(!identity_service.isAuthenticated()){
-//        $location.url('/login');
-//    }
-//
-//
-//    $scope.user = identity_service.getUser().$$state.value;
+
+    $scope.user ={};
+    
+
+	function getCookie(name) {
+		var value = "; " + document.cookie;
+		var parts = value.split("; " + name + "=");
+		if (parts.length == 2) return parts.pop().split(";").shift();
+	}
+	
+	
+	var token = getCookie('authentication');
+    
+    
+    auth_service.takeUser(token,function(respose){
+    	$scope.user = respose;
+    	console.log($scope.user);
+    })
+    
+    
+    
     $scope.items = [];
     shop_service.getAllItems(function(response){
     	

@@ -14,26 +14,18 @@
         console.log($scope.users);
 
 
-//        $scope.totalItems = $scope.users.length;
-//
-//        console.log($scope.totalItems);
-//        $scope.currentPage = 1;
-//
-//
-//        $scope.pageChanged = function () {
-//            console.log( $scope.currentPage);
-//            $scope.nextPageUsers = ($scope.currentPage * 10) - 10;
-//            console.log($scope.nextPageUsers)
-//        };
+        $scope.totalItems = $scope.users.length;
+
+        console.log($scope.totalItems);
+        $scope.currentPage = 1;
+
+
+        $scope.pageChanged = function () {
+            console.log( $scope.currentPage);
+            $scope.nextPageUsers = ($scope.currentPage * 10) - 10;
+            console.log($scope.nextPageUsers)
+        };
     });
-
-
-
-/*    statistic_service.getUserByID(id,function(data){
-        console.log(data.data);
-        $scope.user = data.data;
-    });*/
-
 
 
 

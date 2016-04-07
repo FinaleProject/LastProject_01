@@ -46,7 +46,7 @@ Bonus.prototype.createImg = function(type){
     }
 
     var img = document.createElement("IMG");
-    img.setAttribute("src", "app-js/game/resources/images/" + imgName);
+    img.setAttribute("src", "drashoAll/app/images/" + imgName);
     img.setAttribute("width", "35");
     img.setAttribute("height", "35");
 

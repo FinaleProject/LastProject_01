@@ -19,7 +19,7 @@ class Items extends Migration
     		$table->decimal('item_price');
     		$table->tinyInteger('item_level');
     		$table->timestamps();
-    		 
+    			
     		$table
 	    		->foreign('user_id')
 	    		->references('id')
@@ -34,6 +34,6 @@ class Items extends Migration
      */
     public function down()
     {
-    	Schema::drop('items');
+    	 Schema::drop('items');
     }
 }

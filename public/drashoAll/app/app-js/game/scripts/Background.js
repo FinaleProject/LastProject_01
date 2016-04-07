@@ -13,7 +13,7 @@ function Background(){
 
     var c = canvas.getContext('2d');
     var image = document.createElement('img');
-    image.setAttribute('src', '../app/images/gameBackground02test.jpg');
+    image.setAttribute('src', 'drashoAll/app/images/gameBackground02test.jpg');
 
     var velocity = 10;
     var distance = 0;

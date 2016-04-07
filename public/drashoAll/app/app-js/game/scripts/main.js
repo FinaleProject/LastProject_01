@@ -1,6 +1,35 @@
 
 function scoreCanvas(takenItems){
 
+	var newPoints = takenItems.score;
+	
+	
+	
+	function getCookie(name) {
+		var value = "; " + document.cookie;
+		var parts = value.split("; " + name + "=");
+		if (parts.length == 2) return parts.pop().split(";").shift();
+	}
+	
+	
+	var token = getCookie('authentication');
+	
+	console.log(token);
+	//Authorization: 'X-Api-Token ' + token,
+	//
+	$.ajax({
+		url: 'api/v1/pointsUpdate',
+		type: 'PUT',
+		headers : {'Authorization' : 'X-Api-Token ' + token},
+		data: {"points": newPoints, "token" : token},
+		success: function(data){
+			console.log(data);
+		}
+	});
+	
+	
+	
+	
     var canvas = document.createElement('canvas');
     document.getElementById('gameWrapper').appendChild(canvas);
     canvas.setAttribute("id", "gameCanvas");
@@ -11,19 +40,19 @@ function scoreCanvas(takenItems){
     var ctx = canvas.getContext('2d');
 
     var imageBg = document.createElement('img');
-    imageBg.setAttribute('src', '../app/images/gameBackground02test.jpg');
+    imageBg.setAttribute('src', 'drashoAll/app/images/gameBackground02test.jpg');
 
     var imageWings = document.createElement('img');
-    imageWings.setAttribute('src', '../app/images/wings02.png');
+    imageWings.setAttribute('src', 'drashoAll/app/images/wings02.png');
 
     var imageHeart = document.createElement('img');
-    imageHeart.setAttribute('src', '../app/images/heart2.png');
+    imageHeart.setAttribute('src', 'drashoAll/app/images/heart2.png');
 
     var imageClock = document.createElement('img');
-    imageClock.setAttribute('src', '../app/images/clock.png');
+    imageClock.setAttribute('src', 'drashoAll/app/images/clock.png');
 
     var imageEnemy = document.createElement('img');
-    imageEnemy.setAttribute('src', '../app/images/statsEnemy.png');
+    imageEnemy.setAttribute('src', 'drashoAll/app/images/statsEnemy.png');
 
 
     console.log(imageBg);
@@ -117,7 +146,7 @@ function startGame (){
         var fps        = 2;
         var allRows    = 2;
         var allCols    = 2;
-        var imgPat     = 'images/booom.png';
+        var imgPat     = 'drashoAll/app/images/booom.png';
 
         var test = new Animation(animWidth,animHeight,startRow,startCol,frameCount,imgPat,fps,allRows,allCols);
 

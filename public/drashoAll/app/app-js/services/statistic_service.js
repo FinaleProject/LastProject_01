@@ -8,13 +8,6 @@ app.factory('statistic_service',function($http){
 		        })
 	},
     	
-    	
-        getUserById: function(id, successCB){
-            $http.get('/users/' + id)
-                .then(function(data,status,headers,config){
-                    successCB(data,status);
-                })
-        }
-
     }
+
 });

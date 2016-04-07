@@ -17,9 +17,8 @@ class Users extends Migration
     		$table->string('name');
     		$table->string('email')->unique();
     		$table->string('password');
-    		$table->tinyInteger('level')->unsigned();
-    		$table->tinyInteger('position')->unsigned();
-    		$table->decimal('money');
+    		$table->bigInteger('points');
+    		$table->integer('games_played');
     		$table->string('messages', 500);
     		$table->string('api_token', 32)->unique();
     		$table->rememberToken();

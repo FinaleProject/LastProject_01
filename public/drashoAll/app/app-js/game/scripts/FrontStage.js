@@ -29,7 +29,7 @@ function FrontStage(){
         var fps        = 8;
         var allRows    = 5;
         var allCols    = 5;
-        var imgPat     = 'app-js/game/resources/images/player1.png';
+        var imgPat     = 'drashoAll/app/images/player1.png';
 
         var playerAnim = new Animation(animWidth,animHeight,startRow,startCol,
             frameCount,imgPat,fps,allRows,allCols);
@@ -61,7 +61,7 @@ function FrontStage(){
         var fps        = 8;
         var allRows    = 3;
         var allCols    = 3;
-        var imgPat     = 'app-js/game/resources/images/bird.png';
+        var imgPat     = 'drashoAll/app/images/bird.png';
 
         var Enemy01_Anim = new Animation(animWidth,animHeight,startRow,startCol,
             frameCount,imgPat,fps,allRows,allCols);
@@ -95,7 +95,7 @@ function FrontStage(){
         var fps        = 8;
         var allRows    = 3;
         var allCols    = 3;
-        var imgPat     = 'app-js/game/resources/images/enemy1.png';
+        var imgPat     = 'drashoAll/app/images/enemy1.png';
 
         var Enemy02_Anim = new Animation(animWidth,animHeight,startRow,startCol,
             frameCount,imgPat,fps,allRows,allCols);
@@ -128,7 +128,7 @@ function FrontStage(){
         var fps        = 5;
         var allRows    = 5;
         var allCols    = 4;
-        var imgPat     = '../app/images/bomb.png';
+        var imgPat     = 'drashoAll/app/images/bomb.png';
 
         var Enemy03_Anim = new Animation(animWidth,animHeight,startRow,startCol,
             frameCount,imgPat,fps,allRows,allCols);
@@ -214,7 +214,7 @@ function FrontStage(){
     this.drawLives        = function drawLives(){
 
         var imageHeart = document.createElement('img');
-        imageHeart.setAttribute('src', '../app/images/heart2.png');
+        imageHeart.setAttribute('src', 'drashoAll/app/images/heart2.png');
         this.ctx.drawImage(imageHeart,130,10,25,25);
 
         var scoreText = 'x ' + this.lives;
@@ -241,7 +241,7 @@ function FrontStage(){
 
     this.drawSpeedLevel   = function drawSpeedLevel(){
         var imageWinks = document.createElement('img');
-        imageWinks.setAttribute('src', '../app/images/wings02.png');
+        imageWinks.setAttribute('src', 'drashoAll/app/images/wings02.png');
         this.ctx.drawImage(imageWinks,210,10,25,25);
 
         var speed = 'x ' + this.speedBonusCounter;
@@ -301,7 +301,7 @@ function FrontStage(){
                 var fps        = 2;
                 var allRows    = 2;
                 var allCols    = 2;
-                var imgPat     = 'images/booom.png';
+                var imgPat     = 'drashoAll/app/images/booom.png';
 
                 var test = new Animation(animWidth,animHeight,startRow,startCol,frameCount,imgPat,fps,allRows,allCols);
 

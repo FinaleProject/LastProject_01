@@ -20,8 +20,9 @@ class ApiAuthMiddleware
     	$token = $request->header('X-Api-Token');
     	$user = User::where('api_token', $token)->first();
     	
-    	if(!$user)
+    	if(!$user) {
     		return response('Not authorized', 403);
+    	}
     	
     	Auth::login($user);
     	

@@ -33,6 +33,8 @@ Route::group([
 	], function () {
 		Route::post('/login', 'AuthController@login');
 		Route::post('/register', 'AuthController@registration');
+		Route::put('/pointsUpdate', 'AuthController@updatePoints');
+		Route::post('/getUser', 'AuthController@getUser');
 		
 		Route::group(['middleware' => 'api.auth'], function () {
 			Route::get('token_test', function (){
