@@ -34,6 +34,8 @@ Route::group([
 		Route::post('/login', 'AuthController@login');
 		Route::post('/register', 'AuthController@registration');
 		Route::put('/pointsUpdate', 'AuthController@updatePoints');
+		Route::put('/shopBuy', 'AuthController@payPoints');
+		Route::put('/editProfile', 'AuthController@editProfile');
 		Route::post('/getUser', 'AuthController@getUser');
 		
 		Route::group(['middleware' => 'api.auth'], function () {

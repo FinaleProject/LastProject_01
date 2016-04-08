@@ -68,7 +68,7 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
                 });
             })
             .error(function (err) {
-            	console.log('ima gre6ka')
+            	
                 deferred.reject(err);
             });
 

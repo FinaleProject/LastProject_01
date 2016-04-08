@@ -11,9 +11,9 @@ app.factory('shop_service',function($http){
                 })
         },
         addItemToUser : function(data,successCB){
-            $http.put(data,'user/update') //
+            $http.put('api/v1/shopBuy',data) //
                 .then(function(data,status,headers,config){
-                    successCB(status);
+                    successCB(data,status);
                 })
         }
 

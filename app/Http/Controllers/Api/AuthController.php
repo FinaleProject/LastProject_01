@@ -56,11 +56,48 @@ class AuthController extends Controller
 		
 		$points = $request->points;
 		
+		
 		$user = User::where('api_token', '=' , $token)->first();
+		
+		if ($points > $user['best_score']) {
+			$user['best_score'] = $points;
+		}
 		
 		$user['points'] += $points;
 		
+		$user['games_played'] += 1;
+		
 		$user->save();	
+	 }
+	 
+	 public function payPoints(Request $request, User $user)
+	 {
+	 
+	 	$token = $request->token;
+	 
+	 	$user = User::where('api_token', '=' , $token)->first();
+	 	
+	 	$points = $request->points; // points na item-a
+	 	
+	 	if ($points >= 0){
+	 		
+	 		if($points > $user['points']) {
+	 			return 'Not enough money';
+	 		}
+	 		else {
+	 			$user['points'] = $request->points; // getting points
+	 			
+	 			$user['item_picture'] = $request->picture; // getting image number
+	 			
+	 			$user->save();
+	 			
+	 			return $user;
+	 		}
+	 		
+	 	}
+	 	
+	 	else
+	 		return 'Not enough money'; 
 	 }
 	 
 	 public function getUser(Request $request, User $user) 
@@ -68,6 +105,43 @@ class AuthController extends Controller
 	 	$token = $request->token;
 	 	$user = User::where('api_token', '=' , $token)->first();
 	 	return $user;
+	 }
+	 
+	 public function editProfile(Request $request, User $user)
+	 {
+	 	$token = $request->token;
+	 
+	 	$user = User::where('api_token', '=' , $token)->first();
+	 	
+	 	if ( (!$request->name) || (!$request->password) || (!$request->email) || (!$request->password2)) {
+	 		return 'Not all fields filled!';
+	 	}
+	 	
+	 	if ($request->password != $request->password2) {
+	 		return 'Not same passwords';
+	 	}
+	 		
+	 	else {
+		    $this->validate($request, [
+		    			'email' => '|min:5|max:20',
+			 			'password' => '|min:4|max:10',
+			 			'password2' => '|same:password',
+			 			'name' => '|min:4|max:10'
+			 ]); 
+			 	
+			 	
+		 	$user['name'] = $request->name;
+		 	$user['password'] = $request->password;
+		 	$user['email'] = $request->email;
+		 	
+		 	$user['password'] = bcrypt($user['password']);
+		 	
+		 	$user->save();
+		 	
+	 	}
+	 	
+	 	return $user;
+	 	
 	 }
 	
 	

@@ -19,7 +19,10 @@ class Users extends Migration
     		$table->string('password');
     		$table->bigInteger('points');
     		$table->integer('games_played');
-    		$table->string('messages', 500);
+    		$table->integer('best_score');
+    		$table->tinyInteger('item_picture');
+    		$table->integer('stars_collected');
+    		$table->string('have_rated');
     		$table->string('api_token', 32)->unique();
     		$table->rememberToken();
     		$table->timestamps();

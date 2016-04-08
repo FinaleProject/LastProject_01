@@ -1,7 +1,10 @@
-app.controller('ctrl_MyAcc',function($scope,identity_service){
+app.controller('ctrl_MyAcc',function($scope,myAccount_service,auth_service){
 
     console.log('ctrl_MyAcc is ready...');
 
+    
+    $scope.myProfil = {};
+    
     $scope.showEdit = false;
     $scope.showMsg = false;
 
@@ -9,17 +12,35 @@ app.controller('ctrl_MyAcc',function($scope,identity_service){
     $scope.showMsgForm = showMsgForm;
 
 
-    $scope.myProfil = identity_service.getUser().$$state.value;
+    function getCookie(name) {
+		var value = "; " + document.cookie;
+		var parts = value.split("; " + name + "=");
+		if (parts.length == 2) return parts.pop().split(";").shift();
+	}
+	
+	
+	var token = getCookie('authentication');
+    
+    
+    auth_service.takeUser(token,function(responce){
+    	console.log(responce)
+    	 $scope.myProfil = responce.data
+    })
 
 
-    $scope.saveEditUser = function(editUser, editForm){
+    $scope.saveEditUser = function(editUser){
         console.log($scope.myProfil);
 
         $scope.myProfil.name  = editUser.name;
         $scope.myProfil.email = editUser.email;
 
-
-        console.log(editUser);
+        editUser.token = token;
+        
+        
+        myAccount_service.updateUser(editUser,function(data, status){
+        	console.log(data);
+        	console.log(status);
+        })
 
     };
 

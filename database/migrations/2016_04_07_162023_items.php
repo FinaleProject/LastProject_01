@@ -14,16 +14,10 @@ class Items extends Migration
     {
     	Schema::create('items', function (Blueprint $table) {
     		$table->increments('id');
-    		$table->integer('user_id', false, true);
     		$table->tinyInteger('picture_number');
     		$table->decimal('item_price');
-    		$table->tinyInteger('item_level');
+    		$table->tinyInteger('position');
     		$table->timestamps();
-    			
-    		$table
-	    		->foreign('user_id')
-	    		->references('id')
-	    		->on('users');
     	});
     }
 
@@ -34,6 +28,6 @@ class Items extends Migration
      */
     public function down()
     {
-    	 Schema::drop('items');
+    	Schema::drop('items');
     }
 }
