@@ -37,6 +37,7 @@ Route::group([
 		Route::put('/shopBuy', 'AuthController@payPoints');
 		Route::put('/editProfile', 'AuthController@editProfile');
 		Route::post('/getUser', 'AuthController@getUser');
+		Route::put('/userRaiting', 'AuthController@userRate');
 		
 		Route::group(['middleware' => 'api.auth'], function () {
 			Route::get('token_test', function (){

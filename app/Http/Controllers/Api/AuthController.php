@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+
 use Illuminate\Support\Facades\Input;
 
 class AuthController extends Controller
@@ -142,6 +143,40 @@ class AuthController extends Controller
 	 	
 	 	return $user;
 	 	
+	 }
+	 
+	 public function userRate(Request $request, User $user)
+	 {
+	 	// vzimam id-to na koito shte davam tochki i mu updatevam poleto
+	 	
+	 	$id = $request->id;
+	 	 
+	 	$user = User::where('id', '=' , $id)->first();
+	 	
+	 	$user['stars_collected'] += $request->stars;
+	 	
+	 	$user->save();
+	 	
+	 	$token = $request->token;
+	 	
+	 	$user2 = User::where('api_token', '=' , $token)->first();
+	 	
+	 	$add = $user2['has_rated'];
+	 	 
+	 	$add = $add . ' ' . $id;
+	 	 
+	 	$user2['has_rated'] = $add;
+	 	 
+	 	$user2->save();
+	 	
+	 	return $user2;
+	 	
+	 	//selektiram api_token-a na lognatiq potrebitel i kum nego kazvam kazvam za kogo e glasuval
+	 	
+	 	
+	 
+	 
+	 
 	 }
 	
 	

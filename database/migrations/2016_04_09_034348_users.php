@@ -18,11 +18,11 @@ class Users extends Migration
     		$table->string('email')->unique();
     		$table->string('password');
     		$table->bigInteger('points');
-    		$table->integer('games_played');
-    		$table->integer('best_score');
+    		$table->integer('games_played')->unsigned();
+    		$table->integer('best_score')->unsigned();
     		$table->tinyInteger('item_picture');
-    		$table->integer('stars_collected');
-    		$table->string('have_rated');
+    		$table->tinyInteger('stars_collected')->unsigned();
+    		$table->string('has_rated');
     		$table->string('api_token', 32)->unique();
     		$table->rememberToken();
     		$table->timestamps();

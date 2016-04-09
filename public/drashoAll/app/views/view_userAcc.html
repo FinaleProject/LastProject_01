@@ -69,6 +69,12 @@
                                     class="btn btn-sm btn-primary">
                                 <i class="glyphicon glyphicon-envelope"></i>
                             </button>
+                            <select class= "form-control-sm" ng-model="stars">
+                            	<option value="5" > 5</option>
+                            	<option value="10">10</option>
+                            	<option value="15">15</option>
+                            </select>
+                            <button ng-click = "addStarsToUser()">add stars</button>
                         </div>
                     </div>
                 </div>
