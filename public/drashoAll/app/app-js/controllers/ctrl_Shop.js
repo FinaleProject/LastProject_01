@@ -1,23 +1,19 @@
-app.controller('ctrl_Shop',function($scope, $location, shop_service, identity_service,auth_service){
+app.controller('ctrl_Shop',function($scope, $location, shop_service, auth_service ){
 
     console.log('ctrl_Shop is ready...');
 
+    if(!auth_service.isAuthenticated()){
+    	$location.url('/login');
+    }
+    
     $scope.user ={};
     $scope.msg = '';
     $scope.flag = true;
     
     
-	function getCookie(name) {
-		var value = "; " + document.cookie;
-		var parts = value.split("; " + name + "=");
-		if (parts.length == 2) return parts.pop().split(";").shift();
-	}
-	
-	
-	var token = getCookie('authentication');
+
     
-    
-    auth_service.takeUser(token,function(respose){
+    auth_service.getUser(function(respose){
     	$scope.user = respose.data;
     	console.log($scope.user);
     })

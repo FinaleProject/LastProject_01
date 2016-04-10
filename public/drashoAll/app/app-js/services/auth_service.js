@@ -1,4 +1,4 @@
-app.factory('auth_service',function($http, $q, $cookies, identity_service){
+app.factory('auth_service',function($http, $q, $cookies, $location){
 
     var TOKEN_KEY = 'authentication'; // cookie key
 
@@ -6,10 +6,6 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
     
     
     
-    
-    
-    
-
     var register = function register(user){
     	
         var deferred = $q.defer();
@@ -19,12 +15,9 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
                 deferred.resolve(true);
                 console.log(response)
                 
-                
                 var tokenValue = response.data.api_token;  // tokena koito mi vru6ta api-to
                 
-                
-                console.log(tokenValue)
-                
+                console.log(tokenValue)                
                 
                 var theBigDay = new Date();
                 theBigDay.setHours(theBigDay.getHours() + 72);
@@ -34,7 +27,7 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
 
                 $http.defaults.headers.common.Authorization = 'X-Api-Token ' + tokenValue;
                 // slagam ob6t header koito vseki put se izpra6ta
-                
+                $location.url('/home')
                 
             },function(err){
                 deferred.reject(err)
@@ -49,9 +42,7 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
         $http.post('/api/v1/login', user)
             .success(function (response) {
                 var tokenValue = response.api_token;  // tokena koito mi vru6ta api-to
-                
-                
-                console.log(tokenValue)
+               
                 
                 
                 var theBigDay = new Date();
@@ -63,9 +54,7 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
                 $http.defaults.headers.common.Authorization = 'X-Api-Token ' + tokenValue;
                 // slagam ob6t header koito vseki put se izpra6ta
 
-                getIdentity().then(function () {   // tuk vzimam sus zaqvka user-a
-                    deferred.resolve(response);
-                });
+                $location.path('/home');
             })
             .error(function (err) {
             	
@@ -75,21 +64,18 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
         return deferred.promise;
     };
 
-    var getIdentity = function () {
-        var deferred = $q.defer();
-
-        $http.post('/api/v1/login')
-            .success(function (identityResponse) {
-                identity_service.setUser(identityResponse); // vzimame vsi4kite danni za user-a
-                deferred.resolve(identityResponse);
-            });
-
-        return deferred.promise;
-    };
-
+    function getCookie(name) {
+		var value = "; " + document.cookie;
+		var parts = value.split("; " + name + "=");
+		if (parts.length == 2) return parts.pop().split(";").shift();
+	}
     
     
-    var	takeUser = function takeUser(token,successCB){
+    
+    
+    var	getUser = function takeUser(successCB){
+    	var token = getCookie('authentication');
+    		
 	    	$http.post('api/v1/getUser', {"token": token})
 	        .then(function(data,status,headers,config){
 	            successCB(data,status);
@@ -97,22 +83,23 @@ app.factory('auth_service',function($http, $q, $cookies, identity_service){
 		}
 	
 	
-    
-    
+    var isAuthenticated = function(){
+    	var token = getCookie('authentication');
+    	console.log(token)
+    	return token;
+    }
+   
     
 
     return {
-    	takeUser:takeUser,
+    	isAuthenticated : isAuthenticated,
+    	getUser: getUser,
         register: register, // tuk se podava user
         login: login,
-        getIdentity: getIdentity,
-        isAuthenticated: function () {
-            return !!$cookies.get(TOKEN_KEY);
-        },
         logout: function () {
+        	console.log('LOGOUT ! ! ! ')
             $cookies.remove(TOKEN_KEY);   // iztrivame cookie - to
             $http.defaults.headers.common.Authorization = null; // iztrivame header-a
-            identity_service.removeUser(); // currentUser = {};
         }
     };
 

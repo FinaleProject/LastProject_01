@@ -1,16 +1,16 @@
-app.controller('ctrl_Home',function($scope,identity_service,$location){
+app.controller('ctrl_Home',function($scope,auth_service,$location){
 
     console.log('ctrl_Home is ready...');
 
 
-    //console.log(identity_service.isAuthenticated());
+    console.log(auth_service.isAuthenticated());
 
     $scope.getStarted = function(){
-        if(identity_service.isAuthenticated()){
+    		
+        if(auth_service.isAuthenticated()){
             $location.url('/mainPage');
         }else{
-            $location.url('/mainPage');
-
+            $location.url('/login');
         }
 
     }

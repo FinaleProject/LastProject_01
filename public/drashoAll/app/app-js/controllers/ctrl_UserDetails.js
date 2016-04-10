@@ -1,22 +1,47 @@
-app.controller('ctrl_UserDetails',function($scope, $routeParams, userAcc_service){
+app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userAcc_service,auth_service){
 
     console.log('ctrl_UserDetails...');
 
+    
+    if(!auth_service.isAuthenticated()){
+    	$location.url('/login');
+    }
 
     $scope.showMsg = false;
 
-    $scope.showMsgForm = showMsgForm;
+    $scope.starsPanel = true;
+    
+    
+    console.log($routeParams.id);
+
+    var id = $routeParams.id;
+    
+    
+    auth_service.getUser(function(response){
+    	var currentUser = response.data;
+    	console.log(currentUser);
+    	
+    	var allRatedUsersStr = currentUser.has_rated;
+    	
+    	var allRatedUsersArr = allRatedUsersStr.split(' ');
+    	
+    	console.log(allRatedUsersArr);
+    	
+    	for(var i = 0; i < allRatedUsersArr.length; i++){
+    		
+    		if(allRatedUsersArr[i] == id){
+    			console.log(allRatedUsersArr[i],id)
+    			$scope.starsPanel = false;
+    		}
+    		
+    	}
+    	
+    })
+    
+    
+    
 
 
-
-
-    function showMsgForm(){
-        if(!$scope.showMsg){
-            $scope.showMsg = true;
-        }else{
-            $scope.showMsg = false;
-        }
-    }
     function showEditForm(){
 
         if(!$scope.showEdit){
@@ -27,9 +52,7 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, userAcc_service
 
     }
 
-    console.log($routeParams.id);
-
-    var id = $routeParams.id;
+    
     userAcc_service.getUserByID(id,function(data){
         console.log(data.data);
         $scope.user = data.data;
@@ -37,20 +60,15 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, userAcc_service
 
     
 
-    function getCookie(name) {
-		var value = "; " + document.cookie;
-		var parts = value.split("; " + name + "=");
-		if (parts.length == 2) return parts.pop().split(";").shift();
-	}
-	
-	
-	var token = getCookie('authentication');
     
     $scope.addStarsToUser = function(){
-    	 console.log(id,token,$scope.stars)
-    	 	
+    	$scope.starsPanel = false;
+    	console.log(id,$scope.stars)
+    	 
+    	var token = auth_service.isAuthenticated()
+    	 	console.log(token);
     	userAcc_service.addStars({id: id,token:token,stars:$scope.stars},function(data,status){
-        	console.log(status);
+    		
         	console.log(data);
         })
     }

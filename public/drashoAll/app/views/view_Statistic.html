@@ -8,22 +8,21 @@
             <tr>
                 <th>Picture</th>
                 <th>User name</th>
-                <th>Beast score</th>
-                <th>Level</th>
-                <th>Games</th>
-                <th><a href="" ng-click="orderByPosition()">Position</a></th>
+                <th> <a ng-click = "orderByBestScore()">Best score</a></th>
+                <th> <a ng-click = "orderByGames()">Games </a></th>
+                <th> <a ng-click = "orderByStars()">Stars </a></th>
             </tr>
             </thead>
             <tbody>
 
             <tr ng-repeat="user in users">
 
-                <td><a href="#/users/{{user.id}}"><img src="images/{{user.img}}.png" width="35px" height="30"></a></td>
+                <td><a href="#/users/{{user.id}}"><img src="drashoAll/app/images/{{user.item_picture}}.png" width="35px" height="30"></a></td>
                 <td><a href="#/users/{{user.id}}">{{user.name}}</a></td>
-                <td>{{user.bestScore}}</td>
-                <td>{{user.level}}</td>
-                <td>{{user.games}}</td>
-                <td>{{user.rank}}</td>
+                <td>{{user.best_score}}</td>
+               
+                <td>{{user.games_played}}</td>
+                <td>{{user.stars_collected}}</td>
             </tr>
             </tbody>
 

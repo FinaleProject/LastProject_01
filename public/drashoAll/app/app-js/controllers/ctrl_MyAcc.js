@@ -1,29 +1,23 @@
-app.controller('ctrl_MyAcc',function($scope,myAccount_service,auth_service){
+app.controller('ctrl_MyAcc',function($scope,$location,myAccount_service,auth_service){
 
     console.log('ctrl_MyAcc is ready...');
 
+    if(!auth_service.isAuthenticated()){
+    	$location.url('/login')
+    }
+    
+    
     
     $scope.myProfil = {};
     
     $scope.showEdit = false;
-    $scope.showMsg = false;
+    
 
     $scope.showEditForm = showEditForm;
     $scope.showMsgForm = showMsgForm;
-
-
-    function getCookie(name) {
-		var value = "; " + document.cookie;
-		var parts = value.split("; " + name + "=");
-		if (parts.length == 2) return parts.pop().split(";").shift();
-	}
-	
-	
-	var token = getCookie('authentication');
     
-    
-    auth_service.takeUser(token,function(responce){
-    	console.log(responce)
+    auth_service.getUser(function(responce){
+    	 console.log(responce)
     	 $scope.myProfil = responce.data
     })
 

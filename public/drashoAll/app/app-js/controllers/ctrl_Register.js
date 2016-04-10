@@ -8,8 +8,6 @@ app.controller('ctrl_Register',function($scope,$location,auth_service){
     		console.log(user)
             if(user.pass1 == user.pass2){
 	            auth_service.register(user);
-
-                $location.path('/home');
             }    
 
     }

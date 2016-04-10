@@ -21,37 +21,32 @@
                             <div class="row">
                                 <div class="col-md-3 col-lg-3 " align="center">
                                     <img alt="User Pic"
-                                         src="images/{{user.img}}.png"
+                                   
+                                         src="drashoAll/app/images/{{user.item_picture}}.png"
                                          class="img-circle img-responsive">
                                 </div>
 
                                 <div class=" col-md-9 col-lg-9 ">
                                     <table class="table table-user-information">
                                         <tbody>
-                                        <tr>
-                                            <td><strong>Rank position</strong></td>
-                                            <td>{{user.rank}}</td>
-                                        </tr>
+                                       
                                         <tr>
                                             <td><strong>Best Score:</strong></td>
-                                            <td>{{user.bestScore}}</td>
+                                            <td>{{user.best_score}}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Games:</strong></td>
-                                            <td>{{user.games}}</td>
+                                            <td>{{user.games_played}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Level:</strong></td>
-                                            <td>{{user.level}}</td>
+                                            <td><strong>stars:</strong></td>
+                                            <td>{{user.stars_collected}}</td>
                                         </tr>
-                                        <tr>
-                                            <td><strong>Experience</strong></td>
-                                            <td>{{user.experience}}</td>
-                                        </tr>
+                                       
 
                                         <tr>
-                                            <td><strong>Gender</strong></td>
-                                            <td>{{user.gender}}</td>
+                                            <td><strong>Money</strong></td>
+                                            <td>{{user.points}}</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Email</strong></td>
@@ -62,13 +57,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer">
-                            <button data-original-title="Broadcast Message"
-                                    data-toggle="tooltip" type="button"
-                                    ng-click="showMsgForm()"
-                                    class="btn btn-sm btn-primary">
-                                <i class="glyphicon glyphicon-envelope"></i>
-                            </button>
+                        <div class="panel-footer" ng-show='starsPanel'>
+                            
                             <select class= "form-control-sm" ng-model="stars">
                             	<option value="5" > 5</option>
                             	<option value="10">10</option>

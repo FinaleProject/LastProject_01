@@ -1,11 +1,16 @@
-+app.controller('ctrl_Statistic',function($scope,statistic_service){
++app.controller('ctrl_Statistic',function($scope,auth_service ,$location,statistic_service){
 
     console.log('ctrl_Statistic...');
 
-
-    var flagOrder = true;
-
-   
+    if(!auth_service.isAuthenticated()){
+    	$location.url('/login');
+    }
+    
+    
+    
+    var flagOrderScore = true;
+    var flagOrderGames = true;
+    var flagOrderStars = true;
   
     statistic_service.getUsers(function(reasponse){
 
@@ -27,25 +32,72 @@
         };
     });
 
+    
+    
+    
+    
 
 
-    $scope.orderByPosition = function(){
-        console.log('tuk');
-        if(flagOrder){
-            flagOrder = false;
-            $scope.users.sort(compare);
+    $scope.orderByBestScore = function(){
+    	console.log('sort score');
+        if(flagOrderScore){
+        	flagOrderScore = false;
+            $scope.users.sort(incrementBestScore);
         }else{
-            flagOrder = true;
-            $scope.users.sort(compare2);
+        	flagOrderScore = true;
+            $scope.users.sort(decrementBestScore);
         }
 
     };
-    function compare(a,b) {
-        return a.rank - b.rank;
-    }
+    
+    
+    $scope.orderByGames = function(){
+        console.log('sort games');
+        if(flagOrderGames){
+        	flagOrderGames = false;
+            $scope.users.sort(incrementGames);
+        }else{
+        	flagOrderGames = true;
+            $scope.users.sort(decrementGames);
+        }
 
-    function compare2(a,b) {
-        return b.rank - a.rank;
+    };
+    
+    $scope.orderByStars = function() {
+    	console.log('sort stars');
+    	if(flagOrderStars){
+    		flagOrderStars = false;
+            $scope.users.sort(incrementStars);
+        }else{
+        	flagOrderStars = true;
+            $scope.users.sort(decrementStars);
+        }
+	}
+    
+    
+    function incrementBestScore(a,b) {
+        return a.best_score - b.best_score;
     }
-
+    function decrementBestScore(a,b) {
+        return b.best_score - a.best_score;
+    }
+    
+    
+    function incrementGames(a,b) {
+        return a.games_played - b.games_played;
+    }
+    function decrementGames(a,b) {
+        return b.games_played - a.games_played;
+    }
+    
+    
+    
+    function incrementStars(a,b) {
+        return a.stars_collected - b.stars_collected;
+    }
+    function decrementStars(a,b) {
+        return b.stars_collected - a.stars_collected;
+    }
+    
+    
 });
