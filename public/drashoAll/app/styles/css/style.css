@@ -51,7 +51,7 @@ h4 {
 
 .subtitle{
     margin-top: 10px;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 
 /*
@@ -239,24 +239,22 @@ ul{
 
 .btnStart {
     display: inline-block;
-    min-width: 180px;
+    min-width: 190px;
     padding: .4em;
-    height: 45px;
+    height: 50px;
     text-align: center;
-    color: #fff;
     letter-spacing: 1px;
     margin: 0;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 12px;
     margin-top: 20px;
-    background-color: transperant;
     transition: .5s; 
-    border:1px solid;
+    border: 1px solid white;
 
 }
 .btnStart:hover {
 	background-color: darkgreen;
-    color: grey;
+    color: white;
     text-decoration: none;
 }
 
@@ -282,7 +280,7 @@ ul{
 	width:100%
 }
 .mainPageWrapper{
-	background-image: url(../../images/ea43.jpg);
+	background-image: url(../../images/game2.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	height: 100%;
@@ -292,7 +290,8 @@ ul{
 	display:inline-block;
 	margin: 25px;
 	border-radius: 30px;
-	height: 200px;
+	height: 300px;
+	
 	background-color: rgba(255,255,255, 0);
 }
 .fond{position:absolute;padding-top:85px;top:0;left:0; right:0;bottom:0;}
@@ -326,8 +325,35 @@ ul{
     transform: scale(1.2);
 }
 .shopBg{
+	background: url('../../images/shop/mouseworld_08.jpg') no-repeat;
+	opacity: 0.8;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 30px;
+}
 
-	background: url('../../images/shop/log22.png') no-repeat;
+.myprofile{
+	background: url('../../images/user/user3.jpg') no-repeat center;
+	opacity: 0.8;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 30px;
+}
+
+.to_game{
+	background: url('../../images/game/season4.jpg') no-repeat center;
+	opacity: 0.8;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 30px;
+}
+
+.stats{
+	background: url('../../images/stats/st2.png') no-repeat;
+	opacity: 0.8;
 	background-size: cover;
 	width: 100%;
 	height: 100%;
@@ -336,13 +362,77 @@ ul{
 
 
 .mainPageWrapper {
-	back
+
+}
+
+.profileWarapper {
+	background-image: url("../../images/bald_eagle_flying-wallpaper-1366x768.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+}
+
+.user_form_header {
+	background: rgb(203,203,180);
+	text-align: center;
+}
+.headerFont{
+	font-size: 1.6em;
+}
+
+.invisible {
+	color:white; 
+	text-align: center;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 15px;
+    color: rgb(255, 128, 128) ;
+}
+
+input[type="text"]
+{
+    background-color: rgba(255,255,255, 0.85);
+}
+
+input[type="password"]
+{
+    background-color: rgba(255,255,255, 0.85);
+}
+
+.tableStats {
+	font-size: 1.4em;
+}
+
+.formMargin {
+	margin-top: 200px;
+}
+
+.reg_login_wrapper {
+	background-image: url("../../images/ea43.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+}
+
+.formBG{
+	background: rgba(242, 242, 242, 0.6);
+}
+
+.formHeader {
+	font-size: 1.4em;
+}
+
+.mainPageMargin {
+	margin-top: 150px;
 }
 
 
-
-
-
-
+.homeTextMargin {
+	margin-top: 220px;
+}
 
 

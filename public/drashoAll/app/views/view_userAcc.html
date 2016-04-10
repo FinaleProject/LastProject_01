@@ -1,21 +1,25 @@
-<div>
+<div class='profileWarapper'>
 
-
+	<div style="margin-top: 20px;">
+		<h2 class="invisible">-</h2>
+		
+	</div>
     <div class="container">
         <div class="row">
             <div class="">
-                <div class="col-xs-12 col-sm-12
-                            col-md-6 col-lg-6
-                            col-xs-offset-0
-                            col-sm-offset-0
-                            col-md-offset-3
-                            col-lg-offset-3
-                            toppad" >
+                <div class="col-xs-12
+                			col-sm-12 
+                			col-md-6 
+                			col-lg-8 
+                			col-xs-offset-0
+                			col-sm-offset-0 
+                			col-md-offset-3 
+                			col-lg-offset-2 toppad" >
 
 
                     <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{{user.name}}</h3>
+                        <div class="user_form_header">
+                            <h2 class="panel-title headerFont">{{user.name}}</h2>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -58,13 +62,16 @@
                             </div>
                         </div>
                         <div class="panel-footer" ng-show='starsPanel'>
+                            <div class="">
+                            	<select class= "selectpicker" ng-model="stars">
+                            		<option value="10" selected="selected">10</option>
+                            		<option value="25">25</option>
+                            		<option value="50">50</option>
+                           	 	</select>
+                           	 	<button class="btn btn-success" ng-click = "addStarsToUser()">Rate user</button>
+                            </div>
                             
-                            <select class= "form-control-sm" ng-model="stars">
-                            	<option value="5" > 5</option>
-                            	<option value="10">10</option>
-                            	<option value="15">15</option>
-                            </select>
-                            <button ng-click = "addStarsToUser()">add stars</button>
+                            
                         </div>
                     </div>
                 </div>

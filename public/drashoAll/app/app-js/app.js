@@ -5,14 +5,15 @@ var app = angular.module('app',
     'ui.bootstrap',
     'angularUtils.directives.dirPagination'
     ])
-    .filter('startFrom', function(){
+   .filter('startFrom', function(){
        return function (data, start){
-           if(data){
-               return data.slice(start);
+           console.log('OPA OPA')
+           if(!data){
+               return;
            }
-
+           return data.slice(start)
        }
-    });
+    })
 
 
 app.config(function($routeProvider){

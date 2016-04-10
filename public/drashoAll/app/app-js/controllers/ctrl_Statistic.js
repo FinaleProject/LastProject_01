@@ -6,7 +6,7 @@
     	$location.url('/login');
     }
     
-    
+    $scope.users;
     
     var flagOrderScore = true;
     var flagOrderGames = true;
@@ -23,7 +23,7 @@
 
         console.log($scope.totalItems);
         $scope.currentPage = 1;
-
+        startFrom
 
         $scope.pageChanged = function () {
             console.log( $scope.currentPage);
