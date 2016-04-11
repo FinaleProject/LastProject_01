@@ -106,7 +106,7 @@
 
         .shopWrapper{
             height: 100%;
-            background-image: url("drashoAll/app/images/bald_eagle_flying-wallpaper-1366x768.jpg");
+            background-image: url("drashoAll/app/images/ea50a.jpg");
             background-size: 100%;
         }
         .shopItem{
@@ -117,8 +117,8 @@
         }
 
         .shopItem img{
-            width: 200px;
-            height: 200px;
+            width: 50px;
+            height: 50px;
         }
         .shopItem h4{
             font-size: 21px;
@@ -129,7 +129,7 @@
             text-align: center;
         }
 
-
+		
 
     </style>
 
@@ -166,8 +166,8 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="#">name</a></li>
-        <li><a href="#">Sign in/ Sign up</a></li>
+      	<li><a href="#/myAccount">name</a></li>
+        <li><a href="#/login">Sign in/ Sign up</a></li>
       </ul>
     </div>
   </div>

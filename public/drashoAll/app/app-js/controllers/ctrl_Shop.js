@@ -26,8 +26,23 @@ app.controller('ctrl_Shop',function($scope, $location, shop_service, auth_servic
     	$scope.items = response.data;
     	console.log($scope.items);
     
+    	$scope.allItems = $scope.items.length;
+    	
+    	
+    	$scope.currentPage = 1;
+        
 
+        $scope.pageChanged = function () {
+            console.log( $scope.currentPage);
+            $scope.nextPageUsers = ($scope.currentPage * 10) - 10;
+            console.log($scope.nextPageUsers)
+        };
+    	
+    	
+    	
     });
+    
+    
 
     $scope.selectedItem = function(item){
         $scope.flag = true;

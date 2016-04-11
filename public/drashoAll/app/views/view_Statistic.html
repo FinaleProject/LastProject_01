@@ -11,14 +11,14 @@
             <tr>
                 <th>Picture</th>
                 <th>User name</th>
-                <th> <a ng-click = "orderByBestScore()">Best score</a></th>
-                <th> <a ng-click = "orderByGames()">Games </a></th>
-                <th> <a ng-click = "orderByStars()">Stars </a></th>
+                <th> <a ng-click = "orderByBestScore()" style="cursor:pointer">Best score</a></th>
+                <th> <a ng-click = "orderByGames()" style="cursor:pointer">Games </a></th>
+                <th> <a ng-click = "orderByStars()" style="cursor:pointer">Stars </a></th>
             </tr>
             </thead>
             <tbody>
 
-            <tr ng-repeat="user in users">
+            <tr ng-repeat="user in users | startFrom:nextPageUsers | limitTo:7">
 
                 <td><a href="#/users/{{user.id}}"><img src="drashoAll/app/images/{{user.item_picture}}.png" width="35px" height="30"></a></td>
                 <td><a href="#/users/{{user.id}}">{{user.name}}</a></td>
@@ -30,7 +30,7 @@
             </tbody>
 
         </table>
-        <div class="" style="text-align: center">
+        <div class="forPagination">
 
             <uib-pagination total-items="totalItems"
                             ng-model="currentPage"

@@ -6,7 +6,7 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userA
     if(!auth_service.isAuthenticated()){
     	$location.url('/login');
     }
-
+    
     $scope.showMsg = false;
 
     $scope.starsPanel = true;
@@ -20,6 +20,11 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userA
     auth_service.getUser(function(response){
     	var currentUser = response.data;
     	console.log(currentUser);
+    	
+    	if($routeParams.id == currentUser.id){
+    		$location.url('/myAccount');
+    	}
+    	
     	
     	var allRatedUsersStr = currentUser.has_rated;
     	

@@ -23,7 +23,7 @@
 
         console.log($scope.totalItems);
         $scope.currentPage = 1;
-        startFrom
+        
 
         $scope.pageChanged = function () {
             console.log( $scope.currentPage);

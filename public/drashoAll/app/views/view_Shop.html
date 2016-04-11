@@ -10,24 +10,23 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-
-                <h1 style="text-align: center">Shop</h1>
+				<div class='titleWrapper'>
+				
+				<h1 style="text-align: center">Shop</h1>
+				</div>
+                
                 <div class="row">
 
-                    <div class="shopItem col-sm-4 col-lg-4 col-md-4" ng-repeat="item in items | startFrom:nextPageUsers | limitTo:9">
+                    <div class="shopItem col-sm-4 col-lg-4 col-md-4" 
+                    ng-repeat="item in items | startFrom:nextPageUsers | limitTo:9">
                         <div class="thumbnail shopItemHeight">
                             <img class="shopImage" src="drashoAll/app/images/{{item.picture_number}}.png" alt="">
                             <div class="caption">
                                 <h4 class="pull-right">${{item.item_price}}</h4>
                                 <h4>Price</h4>
-                                <p class="pull-right"><strong>{{item.item_level}}</strong></p>
-                                <h4>Rank:</h4>
+                                
 
-
-                                <p class="pull-right">
-                                    <strong></strong>
-                                </p>
-                                <h4>Level</h4>
+                                                                
 
                                 <button type="button"
                                         class="btn btn-primary col-md-3"
