@@ -172,12 +172,18 @@ class AuthController extends Controller
 	 	return $user2;
 	 	
 	 	//selektiram api_token-a na lognatiq potrebitel i kum nego kazvam kazvam za kogo e glasuval
-	 	
-	 	
-	 
-	 
 	 
 	 }
 	
+	 
+	 public function userDelete(Request $request, User $user)
+	 {
+	 	$api_token = $request->token;
+	 	
+	 	$user = User::where('api_token', '=', $api_token)->delete();
+	 	
+	 	return "Deletet user";
+	 	
+	 }
 	
 }

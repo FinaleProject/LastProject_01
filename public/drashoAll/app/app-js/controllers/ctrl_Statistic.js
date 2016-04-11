@@ -1,10 +1,13 @@
-+app.controller('ctrl_Statistic',function($scope,auth_service ,$location,statistic_service){
++app.controller('ctrl_Statistic',function($scope,auth_service ,$location,statistic_service,$rootScope){
 
     console.log('ctrl_Statistic...');
 
     if(!auth_service.isAuthenticated()){
     	$location.url('/login');
+    	return;
     }
+    
+    $rootScope.$broadcast('user.logged')
     
     $scope.users;
     

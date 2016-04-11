@@ -1,4 +1,4 @@
-app.factory('auth_service',function($http, $q, $cookies, $location){
+app.factory('auth_service',function($http, $q, $cookies, $location, $rootScope){
 
     var TOKEN_KEY = 'authentication'; // cookie key
 
@@ -27,6 +27,7 @@ app.factory('auth_service',function($http, $q, $cookies, $location){
 
                 $http.defaults.headers.common.Authorization = 'X-Api-Token ' + tokenValue;
                 // slagam ob6t header koito vseki put se izpra6ta
+                $rootScope.$broadcast('user.logged')
                 $location.url('/home')
                 
             },function(err){
@@ -54,7 +55,10 @@ app.factory('auth_service',function($http, $q, $cookies, $location){
                 $http.defaults.headers.common.Authorization = 'X-Api-Token ' + tokenValue;
                 // slagam ob6t header koito vseki put se izpra6ta
 
-                $location.path('/home');
+                $rootScope.$broadcast('user.logged')
+                
+                
+                $location.path('/mainPage');
             })
             .error(function (err) {
             	
@@ -73,7 +77,7 @@ app.factory('auth_service',function($http, $q, $cookies, $location){
     
     
     
-    var	getUser = function takeUser(successCB){
+    var	getUser = function getUser(successCB){
     	var token = getCookie('authentication');
     		
 	    	$http.post('api/v1/getUser', {"token": token})
@@ -82,7 +86,17 @@ app.factory('auth_service',function($http, $q, $cookies, $location){
 	        })
 		}
 	
+    var	deleteUser = function deleteUser(successCB){
+    	var token = getCookie('authentication');
+    		
+	    	$http.post('api/v1/userRemoving', {"token": token})
+	        .then(function(data,status,headers,config){
+	            successCB(data,status);
+	        })
+		}
 	
+    
+    
     var isAuthenticated = function(){
     	var token = getCookie('authentication');
     	console.log(token)
@@ -96,7 +110,9 @@ app.factory('auth_service',function($http, $q, $cookies, $location){
     	getUser: getUser,
         register: register, // tuk se podava user
         login: login,
+        deleteUser: deleteUser,
         logout: function () {
+        	$rootScope.$broadcast('user.logout')
         	console.log('LOGOUT ! ! ! ')
             $cookies.remove(TOKEN_KEY);   // iztrivame cookie - to
             $http.defaults.headers.common.Authorization = null; // iztrivame header-a

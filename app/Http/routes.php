@@ -38,6 +38,7 @@ Route::group([
 		Route::put('/editProfile', 'AuthController@editProfile');
 		Route::post('/getUser', 'AuthController@getUser');
 		Route::put('/userRaiting', 'AuthController@userRate');
+		Route::post('/userRemoving', 'AuthController@userDelete');
 		
 		Route::group(['middleware' => 'api.auth'], function () {
 			Route::get('token_test', function (){

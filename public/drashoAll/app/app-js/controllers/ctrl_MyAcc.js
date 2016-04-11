@@ -1,11 +1,12 @@
-app.controller('ctrl_MyAcc',function($scope,$location,myAccount_service,auth_service){
+app.controller('ctrl_MyAcc',function($scope,$location,myAccount_service,auth_service,$rootScope){
 
     console.log('ctrl_MyAcc is ready...');
 
     if(!auth_service.isAuthenticated()){
     	$location.url('/login')
+    	return;
     }
-    
+    $rootScope.$broadcast('user.logged')
     
     
     $scope.myProfil = {};
@@ -27,19 +28,27 @@ app.controller('ctrl_MyAcc',function($scope,$location,myAccount_service,auth_ser
 
         $scope.myProfil.name  = editUser.name;
         $scope.myProfil.email = editUser.email;
-
-        editUser.token = token;
+        
+        editUser.token = auth_service.isAuthenticated();
         
         
         myAccount_service.updateUser(editUser,function(data, status){
         	console.log(data);
         	console.log(status);
         })
+        
 
     };
 
 
-
+    $scope.removeUser = function(){
+    	console.log('clock delete')
+    
+    	auth_service.deleteUser(function(data) {
+			console.log(data);
+			$location.url('/login');
+		})
+    }
 
     function showMsgForm(){
         if(!$scope.showMsg){

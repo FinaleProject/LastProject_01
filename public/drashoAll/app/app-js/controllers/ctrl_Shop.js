@@ -1,10 +1,13 @@
-app.controller('ctrl_Shop',function($scope, $location, shop_service, auth_service ){
+app.controller('ctrl_Shop',function($scope, $location, shop_service, auth_service, $rootScope){
 
     console.log('ctrl_Shop is ready...');
 
     if(!auth_service.isAuthenticated()){
     	$location.url('/login');
+    	return;
     }
+    
+    $rootScope.$broadcast('user.logged')
     
     $scope.user ={};
     $scope.msg = '';

@@ -139,7 +139,7 @@
 
 
 
-<body data-spy="scroll" data-target=".navbar-collapse">
+<body data-spy="scroll" data-target=".navbar-collapse" ng-controller="ctrl_Navigation">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
     <a href="http://browsehappy.com/">upgrade your browser</a>
@@ -166,8 +166,11 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="#/myAccount">name</a></li>
-        <li><a href="#/login">Sign in/ Sign up</a></li>
+      
+      	
+        <li ng-hide='isLoggedUser'><a href="#/login">Sign in/ Sign up</a></li>
+        <li ng-show='isLoggedUser'><a href="#/myAccount">{{loggedUserName}}</a></li>
+        <li ng-show='isLoggedUser'><a href="#/login">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -214,6 +217,8 @@
 <script src="drashoAll/app/app-js/services/userAcc_service.js"></script>
 <script src="drashoAll/app/app-js/directives/game.js"></script>
 
+
+<script src="drashoAll/app/app-js/controllers/ctrl_Navigation.js" ></script>
 <script src="drashoAll/app/app-js/controllers/ctrl_Home.js" ></script>
 <script src="drashoAll/app/app-js/controllers/ctrl_Game.js" ></script>
 <script src="drashoAll/app/app-js/controllers/ctrl_Login.js"></script>

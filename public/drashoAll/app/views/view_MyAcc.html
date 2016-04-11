@@ -1,8 +1,8 @@
 <div class='profileWarapper'>
     
-    <div class="container">
+    <div class="container" >
         <div class="row">
-            <div class="">
+            <div class="" ng-hide="showEdit">
                 <div class="col-xs-12
                 			col-sm-12 
                 			col-md-6 
@@ -63,7 +63,10 @@
                                 <i class="glyphicon glyphicon-edit"></i>
                             </button>
                             <button data-original-title="Remove this user"
-                                data-toggle="tooltip" type="button"
+                            		data-target="#myModal"
+                                	data-toggle="modal" 
+                                	type="button"
+                                	
                                 class="btn btn-sm btn-danger">
                                 <i class="glyphicon glyphicon-remove"></i>
                             </button>
@@ -72,73 +75,132 @@
                     </div>
                 </div>
             </div>
+			<div class="panel-body formBG col-md-8 col-md-offset-2" ng-show="showEdit" style="margin-top: 100px;">
+            <form class="form-horizontal" 
+                    	role="form"
+                  		name="editForm"
+                  		class="col-md-4 col-md-offset-4"
+                  		
+                    		 >
+                     
 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Name</label>
 
-
-            <form role="form"
-                  name="editForm"
-                  class="col-md-4 col-md-offset-4"
-                  ng-show="showEdit"  >
-                <div class="row">
-                    <div class="form-group ">
-                  
-                        <input type="text"
-                               value="asdasd"
+                            <div class="col-md-6">
+                                <input type="text" 
+                                class="form-control" 
+                                
+                               
                                name="name"
                                ng-pattern="/^[A-z]+$/"
-                               class="form-control form-validation"
-                               required="required"
-                               placeholder="Username (5 symbols required)"
-                               ng-model="editUser.name">
-                    </div>
-                    <div class="form-group ">
-                        <input type="text"
-                               class="form-control form-validation"
-                               placeholder="Email (5 symbols required)"
-                               ng-model="editUser.email">
                                
-                    </div>
+                               required="required"
+                               placeholder="Edit Username (required 5 characters)"
+                               ng-model="editUser.name"
+                                
+                                >
+                            </div>
+                        </div>
 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">E-Mail Address</label>
 
-                    <div class="form-group ">
-                        <input type="password"
-                               name="password1"
-                               class="form-control form-validation"
-                               ng-model="editUser.password"
-                               placeholder="Password (5 symbols required)"
-                               ng-minlength="5">
+                            <div class="col-md-6">
+                                <input type="email" 
+                                	   class="form-control" 
+                                       placeholder="Edit email (example@example.com]])"
+                                       ng-model="editUser.email"
+                                     >
 
-                        <p style="font-size: 12px"
-                           ng-show="newUserForm.password1.$error.minlength ||
-                                        newUserForm.password1.$invalid">
-                            Password must be at 5 characters.
-                        </p>
+                        
+                            </div>
+                        </div>
 
-                    </div>
-                    <div class="form-group ">
-                        <input type="password"
-                               class="form-control form-validation"
-                               ng-model="editUser.password2"
-                                placeholder="Password2 (same as the upper)"
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input type="password" 
+                                class="form-control" 
+                                ng-model="editUser.password"
+                                placeholder="Edit password"
+                                ng-minlength="5"
+                                >
+
+                               
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Confirm Password</label>
+
+                            <div class="col-md-6">
+                                <input type="password" 
+                                class="form-control" 
+                                ng-model="editUser.password2"
+                                placeholder="Re-enter the upper password"
                                ng-minlength="5">
                         <p style="font-size: 12px; color: red"
                            ng-if = "flagPass">Invalid password repeat
                         </p>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="form-group col-lg-12 text-center">
-                        <input type="hidden" name="save" value="contact">
+                                
+
+                              
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <input type="hidden" name="save" value="contact">
                         <button type="submit" 
                                 class="btn btn-primary"
                                 ng-disabled="newUserForm.$invalid"
                                 ng-click="saveEditUser(editUser, editForm)"
                         >Save
                         </button>
-                    </div>
-                </div>
-            </form>
+                         <button class="btn btn-default" ng-click="showEditForm()">Cancel</button>       
+                            </div>
+                        </div>
+                    </form>
+				</div>
 
+		
         </div>
     </div>
 </div>
+
+
+
+
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Delete account</h4>
+        </div>
+        <div class="modal-body">
+          <p> Please click "Delete Account" for confirmation.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" 
+          		  ng-click="removeUser()"
+          		  class="btn btn-danger" 
+          		  data-dismiss="modal">Delete Account</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+                    
+ 
+
 

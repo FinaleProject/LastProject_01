@@ -7,6 +7,7 @@ app.factory('myAccount_service',function($http){
 					successCB(data,status);
 			})
 		}
+		
 	}
 	
 	

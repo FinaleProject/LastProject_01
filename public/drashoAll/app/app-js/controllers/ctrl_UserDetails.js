@@ -1,11 +1,14 @@
-app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userAcc_service,auth_service){
+app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userAcc_service,auth_service,$rootScope){
 
     console.log('ctrl_UserDetails...');
 
     
     if(!auth_service.isAuthenticated()){
     	$location.url('/login');
+    	return;
     }
+    
+    $rootScope.$broadcast('user.logged')
     
     $scope.showMsg = false;
 
