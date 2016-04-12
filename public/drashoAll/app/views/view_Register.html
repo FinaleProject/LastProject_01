@@ -7,7 +7,8 @@
                 <div class="panel-heading formHeader">Register</div>	
                 <div class="panel-body formBG">
                     <form class="form-horizontal" 
-                    role="form" >
+                    	  role="form" 
+                    	  name= "registerForm">
                      
 
                         <div class="form-group">
@@ -15,8 +16,11 @@
 
                             <div class="col-md-6">
                                 <input type="text" 
+                                required="required"
                                 class="form-control" 
                                 name="name" 
+                                placeholder = "Min 4 characters"
+                                ng-minlength = 4 
                                 ng-model="user.name"
                                 >
                             </div>
@@ -27,6 +31,9 @@
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" 
+                                required="required"
+                                ng-pattern="/\S+@\S+\.\S+/"
+                                placeholder = "example@example.com"
                                 name="email" 
                                 ng-model="user.email">
 
@@ -40,6 +47,9 @@
                             <div class="col-md-6">
                                 <input type="password" 
                                 class="form-control" 
+                                required="required"
+                                placeholder = "Min 4 characters"
+                                ng-minlength = 4 
                                 ng-model="user.password"
                                 name="password">
 
@@ -51,11 +61,16 @@
                             <label class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
-                                <input type="password" 
+                                <input type="password"
+                                required="required" 
                                 class="form-control" 
+                                placeholder = "Min 4 characters"
+                                ng-minlength = 4 
                                 ng-model="user.password2"
                                 name="password_confirmation">
-
+								<p style="font-size: 12px; color: red"
+                           			ng-if = "flagPass">Invalid password repeat
+                       		 	</p>
                               
                             </div>
                         </div>
@@ -63,7 +78,8 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button
-                                ng-click="registerUser(user)"
+                                	ng-disabled= "registerForm.$invalid"
+                                	ng-click="registerUser(user)"
                                  class="btn btn-primary">
                                     Register
                                 </button>

@@ -29,6 +29,10 @@ class AuthController extends Controller
     		return Auth::user();
     	}
     	
+    	else {
+    		return "User not found!";
+    	}
+    	
     	return response(['email' => ['Wrong email or password']], 422);
     	
 	}

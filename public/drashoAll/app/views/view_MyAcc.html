@@ -96,7 +96,7 @@
                                ng-pattern="/^[A-z]+$/"
                                
                                required="required"
-                               placeholder="Edit Username (required 5 characters)"
+                               placeholder="Edit name (required 5 characters only letters)"
                                ng-model="editUser.name"
                                 
                                 >
@@ -107,7 +107,9 @@
                             <label class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input type="email" 
+                                <input type="email"
+                               		   ng-pattern="/\S+@\S+\.\S+/"
+                                	   required="required" 
                                 	   class="form-control" 
                                        placeholder="Edit email (example@example.com]])"
                                        ng-model="editUser.email"
@@ -121,7 +123,8 @@
                             <label class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input type="password" 
+                                <input type="password"
+                                required="required"  
                                 class="form-control" 
                                 ng-model="editUser.password"
                                 placeholder="Edit password"
@@ -137,6 +140,7 @@
 
                             <div class="col-md-6">
                                 <input type="password" 
+                                required="required" 
                                 class="form-control" 
                                 ng-model="editUser.password2"
                                 placeholder="Re-enter the upper password"
@@ -155,7 +159,7 @@
                                 <input type="hidden" name="save" value="contact">
                         <button type="submit" 
                                 class="btn btn-primary"
-                                ng-disabled="newUserForm.$invalid"
+                                ng-disabled="editForm.$invalid"
                                 ng-click="saveEditUser(editUser, editForm)"
                         >Save
                         </button>

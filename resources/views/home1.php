@@ -48,14 +48,14 @@
             z-index: 5;
         }
         canvas{
-            border: 1px solid black;
+            
             position: absolute;
             display: block;
         }
 
         .gameWrapper{
             height: 85%;
-            background-image: url("drashoAll/app/images/bald_eagle_flying-wallpaper-1366x768.jpg");
+            background-image: url("drashoAll/app/images/ea50a.jpg");
             background-size: 100%;
         }
         .loginWrapper{
@@ -157,7 +157,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#/home">Home</a>
+      <a class="navbar-brand" href="#/mainPage">My menu</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

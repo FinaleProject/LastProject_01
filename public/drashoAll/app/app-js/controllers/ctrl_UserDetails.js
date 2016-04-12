@@ -12,7 +12,7 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userA
     
     $scope.showMsg = false;
 
-    $scope.starsPanel = true;
+    $scope.voteButton = false;
     
     
     console.log($routeParams.id);
@@ -39,7 +39,7 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userA
     		
     		if(allRatedUsersArr[i] == id){
     			console.log(allRatedUsersArr[i],id)
-    			$scope.starsPanel = false;
+    			$scope.voteButton = true;
     		}
     		
     	}
@@ -72,7 +72,7 @@ app.controller('ctrl_UserDetails',function($scope, $routeParams, $location,userA
     $scope.addStarsToUser = function(){
     	$scope.starsPanel = false;
     	console.log(id,$scope.stars)
-    	 
+    	 $scope.voteButton = true;
     	var token = auth_service.isAuthenticated()
     	 	console.log(token);
     	userAcc_service.addStars({id: id,token:token,stars:$scope.stars},function(data,status){

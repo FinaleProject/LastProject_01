@@ -39,39 +39,39 @@ function scoreCanvas(takenItems){
     canvas.setAttribute("top", "10");
     var ctx = canvas.getContext('2d');
 
-    var imageBg = document.createElement('img');
-    imageBg.setAttribute('src', 'drashoAll/app/images/gameBackground02test.jpg');
+//    var imageBg = document.createElement('img');
+//    imageBg.setAttribute('src', 'drashoAll/app/images/gameBackground02test.jpg');
+//
+//    var imageWings = document.createElement('img');
+//    imageWings.setAttribute('src', 'drashoAll/app/images/wings02.png');
+//
+//    var imageHeart = document.createElement('img');
+//    imageHeart.setAttribute('src', 'drashoAll/app/images/heart2.png');
+//
+//    var imageClock = document.createElement('img');
+//    imageClock.setAttribute('src', 'drashoAll/app/images/clock.png');
+//
+//    var imageEnemy = document.createElement('img');
+//    imageEnemy.setAttribute('src', 'drashoAll/app/images/statsEnemy.png');
+//
+//
+//    console.log(imageBg);
+//    console.log(imageWings);
+//    console.log(imageHeart);
+//    console.log(imageEnemy);
 
-    var imageWings = document.createElement('img');
-    imageWings.setAttribute('src', 'drashoAll/app/images/wings02.png');
-
-    var imageHeart = document.createElement('img');
-    imageHeart.setAttribute('src', 'drashoAll/app/images/heart2.png');
-
-    var imageClock = document.createElement('img');
-    imageClock.setAttribute('src', 'drashoAll/app/images/clock.png');
-
-    var imageEnemy = document.createElement('img');
-    imageEnemy.setAttribute('src', 'drashoAll/app/images/statsEnemy.png');
-
-
-    console.log(imageBg);
-    console.log(imageWings);
-    console.log(imageHeart);
-    console.log(imageEnemy);
-
-    ctx.drawImage(imageBg,0,0,700,500);
+//    ctx.drawImage(imageBg,0,0,700,500);
 
     console.log(takenItems);
 
     var endGame = 'END GAME';
     var totalScore   = 'Your score is: ' + takenItems.score;
-    var wingsScore   = 'wings  : ' + takenItems.speed  + ' x 20 = ' + takenItems.speed*20    + ' points';
-    var clocksScore  = 'clocks : ' + takenItems.clock  + ' x 30 = ' + takenItems.clock*30    + ' points';
-    var heartsScore  = 'hearts : ' + takenItems.lives  + ' x 10 = ' + takenItems.lives*10    + ' points';
-    var wrongsScore  = 'wrongs : ' + takenItems.bird02 + ' x -10 = '+ takenItems.bird02* -10 + ' points';
-    var enemiesScore = 'enemies: ' + takenItems.bird01 + ' x 1 = '  + takenItems.bird01      + ' points';
-
+    var wingsScore   = 'wings  : ' + takenItems.speed  + ' x  20 = ' + takenItems.speed*20    + ' points';
+    var clocksScore  = 'clocks : ' + takenItems.clock  + ' x  30 = ' + takenItems.clock*30    + ' points';
+    var heartsScore  = 'hearts : ' + takenItems.lives  + ' x  10 = ' + takenItems.lives*10    + ' points';
+    var wrongsScore  = 'fat birds : ' + takenItems.bird02 + ' x -10 = '+ takenItems.bird02* -10 + ' points';
+    var enemiesScore = '"friendly" birds: ' + takenItems.bird01 + ' x  1  = '  + takenItems.bird01      + ' points';
+    var black        = 'black birds: '   + takenItems.bird03 + ' x -20 = '  + takenItems.bird03 * -20      + ' points';
 
     ctx.font = 'italic 45px bold Helvetica sans-serif';
     ctx.fillStyle = 'rgb(0, 0, 0)';
@@ -83,22 +83,24 @@ function scoreCanvas(takenItems){
     ctx.fillText(endGame , 250, 100);
     ctx.font = 'italic 25px bold Helvetica sans-serif';
 
-    ctx.fillText(heartsScore, 60,150);
-    ctx.fillText(wingsScore,  60,200);
-    ctx.fillText(clocksScore, 60,250);
-    ctx.fillText(wrongsScore, 60,300);
-    ctx.fillText(enemiesScore,60,350);
-
+    ctx.fillText(heartsScore, 60,140);
+    ctx.fillText(wingsScore,  60,180);
+    ctx.fillText(clocksScore, 60,220);
+    ctx.fillText(wrongsScore, 60,260);
+    ctx.fillText(enemiesScore,60,300);
+    ctx.fillText(black, 60, 340);
+    
+    
     ctx.font = 'italic 45px bold Helvetica sans-serif';
-    ctx.fillText(totalScore,60,400);
-    ctx.beginPath();
-    ctx.drawImage(imageHeart,90,115,40,40);
-    ctx.beginPath();
-    ctx.drawImage(imageWings,90,165,40,40);
-    ctx.beginPath();
-    ctx.drawImage(imageClock,90,215,40,40);
-    ctx.beginPath();
-    ctx.drawImage(imageEnemy,90,265,40,40);
+    ctx.fillText(totalScore,60,420);
+//    ctx.beginPath();
+//    ctx.drawImage(imageHeart,90,115,40,40);
+//    ctx.beginPath();
+//    ctx.drawImage(imageWings,90,165,40,40);
+//    ctx.beginPath();
+//    ctx.drawImage(imageClock,90,215,40,40);
+//    ctx.beginPath();
+//    ctx.drawImage(imageEnemy,90,265,40,40);
 
 
 }

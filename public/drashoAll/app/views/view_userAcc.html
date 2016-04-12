@@ -1,7 +1,7 @@
 <div class='profileWarapper'>
 
-	<div style="margin-top: 20px;">
-		<h2 class="invisible">-</h2>
+	<div >
+		
 		
 	</div>
     <div class="container">
@@ -16,7 +16,9 @@
                 			col-md-offset-3 
                 			col-lg-offset-2 toppad" >
 
-
+					<div class="titleWrapper">
+						<h1 style="color:white; text-align: center;"><i>User information</i></h1>
+					</div>
                     <div class="panel panel-info">
                         <div class="user_form_header">
                             <h2 class="panel-title headerFont">{{user.name}}</h2>
@@ -61,14 +63,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer" ng-show='starsPanel'>
+                        <div class="panel-footer" >
                             <div class="">
                             	<select class= "selectpicker" ng-model="stars">
                             		<option value="10" selected="selected">10</option>
                             		<option value="25">25</option>
                             		<option value="50">50</option>
                            	 	</select>
-                           	 	<button class="btn btn-success" ng-click = "addStarsToUser()">Rate user</button>
+                           	 	<button class="btn btn-success"
+                           	 			ng-disabled='voteButton'
+                           	 	 		ng-click = "addStarsToUser()">Rate user</button>
                             </div>
                             
                             

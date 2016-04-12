@@ -8,7 +8,7 @@ app.controller('ctrl_MyAcc',function($scope,$location,myAccount_service,auth_ser
     }
     $rootScope.$broadcast('user.logged')
     
-    
+    $scope.flagPass = false;
     $scope.myProfil = {};
     
     $scope.showEdit = false;
@@ -31,10 +31,19 @@ app.controller('ctrl_MyAcc',function($scope,$location,myAccount_service,auth_ser
         
         editUser.token = auth_service.isAuthenticated();
         
-        
-        myAccount_service.updateUser(editUser,function(data, status){
+        if(editUser.password != editUser.password2){
+        	$scope.flagPass = true;
+        	return;
+        }
+        $scope.flagPass = false;
+        myAccount_service.updateUser(editUser,function(data){
         	console.log(data);
-        	console.log(status);
+        	
+        	
+        	
+        	if(data.status == 200){
+        		$scope.showEdit = false;
+        	}
         })
         
 

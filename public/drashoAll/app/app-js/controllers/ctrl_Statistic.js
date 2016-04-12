@@ -30,7 +30,7 @@
 
         $scope.pageChanged = function () {
             console.log( $scope.currentPage);
-            $scope.nextPageUsers = ($scope.currentPage * 10) - 10;
+            $scope.nextPageUsers = ($scope.currentPage * 7) - 7;
             console.log($scope.nextPageUsers)
         };
     });
